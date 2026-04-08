@@ -1,21 +1,28 @@
 import { Text, View } from 'react-native';
 
+import { SectionHeading } from '@/components/landing/SectionHeading';
 import { faq, faqSection } from '@/constants/config';
 
 export function Faq() {
   return (
-    <View className="bg-cream px-5 py-14 md:px-10">
+    <View className="from-babySky/15 via-white to-sunshine/15 bg-gradient-to-b px-5 py-16 md:px-10 md:py-24">
       <View className="mx-auto w-full max-w-3xl">
-        <Text className="font-display text-ink-900 mb-10 text-center text-2xl font-semibold md:text-3xl">
-          {faqSection.title}
-        </Text>
-        <View className="flex-col gap-6">
+        <SectionHeading
+          eyebrow={faqSection.eyebrow}
+          title={faqSection.title}
+        />
+        <View className="flex-col gap-4">
           {faq.map((item, i) => (
             <View
               key={i}
-              className="bg-white border-ink-900/8 rounded-2xl border p-5 shadow-sm shadow-ink-900/5 md:p-6">
-              <Text className="font-display text-ink-900 mb-2 text-lg font-semibold">{item.question}</Text>
-              <Text className="font-body text-ink-700 text-base leading-relaxed">{item.answer}</Text>
+              className="border-white/90 flex-row gap-4 overflow-hidden rounded-3xl border bg-white/90 p-5 shadow-lift backdrop-blur-md web:transition-transform web:duration-300 web:hover:-translate-y-0.5 md:gap-6 md:p-7">
+              <View className="from-sunshine to-crayonCoral mt-0.5 h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-white bg-gradient-to-br shadow-playful">
+                <Text className="font-display text-sm font-bold text-white">{i + 1}</Text>
+              </View>
+              <View className="min-w-0 flex-1">
+                <Text className="font-display text-ink-900 mb-2 text-lg font-bold">{item.question}</Text>
+                <Text className="font-body text-ink-600 text-base leading-relaxed">{item.answer}</Text>
+              </View>
             </View>
           ))}
         </View>

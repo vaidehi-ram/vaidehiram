@@ -29,7 +29,7 @@ export const contact = {
  * For GitHub Project Pages this is often https://<user>.github.io/<repo>/
  */
 export const site = {
-  canonicalBaseUrl: 'https://yourusername.github.io/vaidehiram',
+  canonicalBaseUrl: 'https://vaidehi-ram.github.io/vaidehiram',
 } as const;
 
 export const seo = {
@@ -39,11 +39,38 @@ export const seo = {
   ogImageUrl: '',
 } as const;
 
+/**
+ * Profile — shown in the big “Meet your childminder” spotlight under the hero.
+ *
+ * - `local` — put your portrait at `assets/images/profile.png` (JPG/PNG both work; swap the file, keep the name)
+ * - `remote` — set `remoteUrl` to a full `https://…` link
+ * - `none` — no image; a colourful friendly placeholder appears instead (great while you sort a photo)
+ */
+export const profilePhoto = {
+  mode: 'local' as 'none' | 'local' | 'remote',
+  remoteUrl: '',
+  /** First name or how you sign off — appears large next to the photo */
+  displayName: 'Vaidehi',
+  /** Line under the name */
+  roleLabel: 'Childminder · Home-based care · Early years',
+  /** Short colourful tags (emoji optional) — edit freely */
+  funTags: ['🧸 Play & creativity', '🌳 Outdoor time', '📚 Stories & songs'] as const,
+  /** Accessibility & SEO description of the image */
+  alt: 'Portrait of the childminder',
+  /** Caption under photo in spotlight (leave '' to hide) */
+  caption: 'Nice to meet you!',
+  /** Shown under the role line when there is no photo (`mode: none` or missing remote URL) */
+  noPhotoHint:
+    'Add your portrait: keep `mode: local` and replace `assets/images/profile.png`, or switch to `remote` with an https image link.',
+} as const;
+
 export const hero = {
   headline: 'Calm, joyful days for little learners',
   subline:
     'Home-based childminding with gentle structure, outdoor play, and partnership with families. Spaces limited—say hello to check availability.',
   primaryCtaLabel: 'Contact me',
+  /** Shown under the main button */
+  ctaHint: 'Usually replies within one business day',
 } as const;
 
 export const trustBadges: {
@@ -73,6 +100,7 @@ export const trustBadges: {
 ];
 
 export const about = {
+  eyebrow: 'Meet me',
   sectionTitle: 'Why I love childminding',
   paragraphs: [
     'Children remind us to notice the small wonders—a robin in the garden, the first successful pour from a jug, a new friendship over shared blocks. Supporting those moments in a calm, predictable environment is what drew me to childminding.',
@@ -82,17 +110,20 @@ export const about = {
 } as const;
 
 export const trustSection = {
+  eyebrow: 'Credentials',
   title: 'Peace of mind',
   subtitle: 'Clear, honest status on the qualifications families ask about first.',
 } as const;
 
 export const testimonialsSection = {
+  eyebrow: 'Families',
   title: 'Kind words from families',
   noteDesktop: 'Reviews are anonymised; replace with real testimonials when you are ready.',
   noteMobile: 'Swipe sideways to read more. Replace copy in `testimonials.json` anytime.',
 } as const;
 
 export const faqSection = {
+  eyebrow: 'FAQ',
   title: 'Questions parents ask',
 } as const;
 

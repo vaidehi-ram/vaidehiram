@@ -1,5 +1,6 @@
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
 
+import { SectionHeading } from '@/components/landing/SectionHeading';
 import { testimonialsSection } from '@/constants/config';
 import testimonialsData from '@/testimonials.json';
 
@@ -7,10 +8,21 @@ type Testimonial = (typeof testimonialsData)[number];
 
 function TestimonialCard({ item }: { item: Testimonial }) {
   return (
-    <View className="bg-white border-ink-900/8 w-full shrink-0 rounded-2xl border p-6 shadow-sm shadow-ink-900/5 md:flex-1 md:min-w-0">
-      <Text className="font-body text-ink-900 mb-4 text-base leading-relaxed">&ldquo;{item.quote}&rdquo;</Text>
-      <Text className="font-display text-ink-900 text-sm font-semibold">{item.author}</Text>
-      <Text className="font-body text-ink-500 text-sm">{item.relation}</Text>
+    <View className="border-babySky/50 from-white/98 to-babySky/10 shadow-card relative w-full shrink-0 overflow-hidden rounded-3xl border-2 bg-gradient-to-b p-6 shadow-lift backdrop-blur-sm web:transition-all web:duration-300 web:hover:-translate-y-1 web:hover:shadow-card md:min-w-0 md:flex-1">
+      <Text
+        className="font-display text-blush-200 pointer-events-none absolute -left-1 -top-2 text-7xl font-bold leading-none">
+        &ldquo;
+      </Text>
+      <View className="relative">
+        <Text className="mb-3 text-sm tracking-wide text-crayonCoral">★★★★★</Text>
+        <Text className="font-body text-ink-800 relative z-10 mb-5 text-base leading-relaxed md:text-[17px]">
+          {item.quote}
+        </Text>
+        <View className="border-ink-900/8 border-t border-dotted pt-4">
+          <Text className="font-display text-ink-900 text-sm font-bold">{item.author}</Text>
+          <Text className="font-body text-ink-500 mt-0.5 text-sm">{item.relation}</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -21,15 +33,14 @@ export function Testimonials() {
 
   if (!isNarrow) {
     return (
-      <View className="bg-white px-5 py-14 md:px-10">
-        <View className="mx-auto w-full max-w-5xl">
-          <Text className="font-display text-ink-900 mb-2 text-center text-2xl font-semibold md:text-3xl">
-            {testimonialsSection.title}
-          </Text>
-          <Text className="font-body text-ink-500 mx-auto mb-10 max-w-2xl text-center">
-            {testimonialsSection.noteDesktop}
-          </Text>
-          <View className="flex-col gap-6 md:flex-row md:flex-wrap">
+      <View className="from-sunshine/20 via-cream to-crayonLilac/20 bg-gradient-to-b px-5 py-16 md:px-10 md:py-20">
+        <View className="mx-auto w-full max-w-6xl">
+          <SectionHeading
+            eyebrow={testimonialsSection.eyebrow}
+            title={testimonialsSection.title}
+            subtitle={testimonialsSection.noteDesktop}
+          />
+          <View className="flex-col gap-6 md:flex-row md:flex-wrap md:justify-center">
             {testimonialsData.map((item) => (
               <View key={item.id} className="md:w-[31%] md:flex-grow">
                 <TestimonialCard item={item} />
@@ -44,14 +55,13 @@ export function Testimonials() {
   const cardWidth = Math.min(width - 48, 340);
 
   return (
-    <View className="bg-white px-5 py-14">
-      <View className="mx-auto w-full max-w-5xl">
-        <Text className="font-display text-ink-900 mb-2 text-center text-2xl font-semibold">
-          {testimonialsSection.title}
-        </Text>
-        <Text className="font-body text-ink-500 mx-auto mb-8 max-w-xl text-center text-sm">
-          {testimonialsSection.noteMobile}
-        </Text>
+    <View className="from-sunshine/20 via-cream to-crayonLilac/20 bg-gradient-to-b px-5 py-16">
+      <View className="mx-auto w-full max-w-6xl">
+        <SectionHeading
+          eyebrow={testimonialsSection.eyebrow}
+          title={testimonialsSection.title}
+          subtitle={testimonialsSection.noteMobile}
+        />
         <ScrollView
           horizontal
           pagingEnabled

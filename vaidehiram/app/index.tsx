@@ -5,16 +5,29 @@ import { About } from '@/components/landing/About';
 import { Faq } from '@/components/landing/Faq';
 import { Footer } from '@/components/landing/Footer';
 import { Hero } from '@/components/landing/Hero';
+import { PlayfulStripe } from '@/components/landing/PlayfulStripe';
+import { ProfileSpotlight } from '@/components/landing/ProfileSpotlight';
 import { Testimonials } from '@/components/landing/Testimonials';
 import { TrustBar } from '@/components/landing/TrustBar';
-import { business, seo, site } from '@/constants/config';
+import { business, profilePhoto, seo, site } from '@/constants/config';
 
 const canonicalUrl = site.canonicalBaseUrl.replace(/\/$/, '') + '/';
+
+const ogImage =
+  seo.ogImageUrl.trim() ||
+  (profilePhoto.mode === 'remote' ? profilePhoto.remoteUrl.trim() : '') ||
+  undefined;
 
 export default function Index() {
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
         <link rel="canonical" href={canonicalUrl} />
@@ -23,15 +36,17 @@ export default function Index() {
         <meta property="og:description" content={seo.description} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content={business.shortName} />
-        {seo.ogImageUrl ? <meta property="og:image" content={seo.ogImageUrl} /> : null}
+        {ogImage ? <meta property="og:image" content={ogImage} /> : null}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
-        {seo.ogImageUrl ? <meta name="twitter:image" content={seo.ogImageUrl} /> : null}
+        {ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
       </Head>
-      <View className="min-h-full flex-1 bg-cream">
+      <View className="from-sunshine/10 via-cream to-babySky/15 min-h-full flex-1 bg-gradient-to-b">
         <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
+          <PlayfulStripe />
           <Hero />
+          <ProfileSpotlight />
           <TrustBar />
           <Testimonials />
           <About />
