@@ -1,11 +1,16 @@
 import * as Linking from 'expo-linking';
-import { Pressable, Text, View } from 'react-native';
+import { Platform, Pressable, Text, View } from 'react-native';
 
-import { business, hero, contact } from '@/constants/config';
+import { business, contact, hero } from '@/constants/config';
 
 export function Hero() {
   const onContact = () => {
-    Linking.openURL(`mailto:${contact.email}?subject=${encodeURIComponent(`Enquiry — ${business.shortName}`)}`);
+    if (Platform.OS === 'web') {
+      // Scroll smoothly to the footer contact section
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      Linking.openURL(`mailto:${contact.email}?subject=${encodeURIComponent(`Enquiry — ${business.shortName}`)}`);
+    }
   };
 
   return (
@@ -43,7 +48,7 @@ export function Hero() {
 
           <View className="mb-7 mt-3 max-w-xl flex-row flex-wrap gap-2">
             <View className="bg-sunshine/45 border-sunshine/80 rounded-xl border px-3 py-1.5">
-              <Text className="font-body text-ink-900 text-xs font-bold">🏠 Home setting</Text>
+              <Text className="font-body text-ink-900 text-xs font-bold">🚗 I come to your home</Text>
             </View>
             <View className="bg-crayonGrass/35 border-crayonGrass rounded-xl border px-3 py-1.5">
               <Text className="font-body text-ink-900 text-xs font-bold">🎨 Play-led days</Text>
@@ -69,20 +74,21 @@ export function Hero() {
           <View className="border-sunshine/50 from-sunshine/40 to-crayonPink/30 shadow-playful absolute right-2 top-8 z-0 h-40 w-40 rotate-6 rounded-3xl border-4 border-dashed bg-gradient-to-br md:right-12 md:top-10" />
 
           <View className="border-crayonCoral/30 from-white to-babySky/15 shadow-card absolute right-0 top-6 z-20 w-[92%] rounded-[2rem] border-2 bg-white/95 p-7 shadow-lift backdrop-blur-xl web:hover:-translate-y-1 web:transition-transform web:duration-300 md:top-10 md:w-[85%]">
-            <Text className="mb-3 text-4xl">🏠</Text>
-            <Text className="font-display text-ink-900 mb-2 text-xl font-bold">Snug as a bug</Text>
+            <Text className="mb-3 text-4xl">🏡</Text>
+            <Text className="font-display text-ink-900 mb-2 text-xl font-bold">Care in your own home</Text>
             <Text className="font-body text-ink-700 text-sm leading-relaxed">
-              A calm home rhythm: snacks, stories, cosy corners, and room to zoom around when energy is high.
+              Your child stays in their familiar surroundings — their toys, their routines, their cosy corners. No
+              settling-in stress.
             </Text>
             <View className="bg-crayonGrass/40 border-crayonGrass mt-5 flex-row flex-wrap gap-2 self-start rounded-2xl border px-3 py-2.5">
               <Text className="text-base">🧺</Text>
-              <Text className="font-body text-ink-900 text-xs font-bold">Messy play welcome · easy wash-down floors</Text>
+              <Text className="font-body text-ink-900 text-xs font-bold">Messy play welcome · familiar space</Text>
             </View>
           </View>
 
           <View className="border-sunshine bg-sunshine/90 absolute bottom-4 left-0 z-10 w-[62%] rounded-2xl border-4 border-white p-4 shadow-card web:hover:-translate-y-0.5 web:transition-transform md:bottom-8">
             <Text className="font-body text-ink-900 text-[11px] font-bold uppercase tracking-[0.2em]">Vibe check</Text>
-            <Text className="font-display text-ink-900 mt-1.5 text-lg font-bold">Happy, fed & tucked-in calm</Text>
+            <Text className="font-display text-ink-900 mt-1.5 text-lg font-bold">Happy, fed &amp; tucked-in calm</Text>
           </View>
         </View>
       </View>

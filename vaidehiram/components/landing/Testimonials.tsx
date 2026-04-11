@@ -52,30 +52,38 @@ export function Testimonials() {
     );
   }
 
-  const cardWidth = Math.min(width - 48, 340);
+  // Card fills most of the viewport; side padding is handled inside the ScrollView.
+  const SIDE_PAD = 20;
+  const cardWidth = width - SIDE_PAD * 2;
 
   return (
-    <View className="from-sunshine/20 via-cream to-crayonLilac/20 bg-gradient-to-b px-5 py-16">
-      <View className="mx-auto w-full max-w-6xl">
+    <View className="from-sunshine/20 via-cream to-crayonLilac/20 bg-gradient-to-b py-16">
+      {/* Heading still gets side padding */}
+      <View className="mx-auto w-full max-w-6xl px-5">
         <SectionHeading
           eyebrow={testimonialsSection.eyebrow}
           title={testimonialsSection.title}
           subtitle={testimonialsSection.noteMobile}
         />
-        <ScrollView
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          decelerationRate="fast"
-          snapToAlignment="center"
-          contentContainerStyle={{ gap: 16, paddingHorizontal: 8 }}>
-          {testimonialsData.map((item) => (
-            <View key={item.id} style={{ width: cardWidth }}>
-              <TestimonialCard item={item} />
-            </View>
-          ))}
-        </ScrollView>
       </View>
+      {/* Full-bleed scroll container so cards are never clipped */}
+      <ScrollView
+        horizontal
+        pagingEnabled={false}
+        showsHorizontalScrollIndicator={false}
+        decelerationRate="fast"
+        snapToInterval={cardWidth + 16}
+        snapToAlignment="start"
+        contentContainerStyle={{
+          paddingHorizontal: SIDE_PAD,
+          gap: 16,
+        }}>
+        {testimonialsData.map((item) => (
+          <View key={item.id} style={{ width: cardWidth }}>
+            <TestimonialCard item={item} />
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }

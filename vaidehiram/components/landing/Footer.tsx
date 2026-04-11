@@ -22,7 +22,7 @@ function ContactChip({
 
 export function Footer() {
   return (
-    <View className="from-ink-950 to-ink-900 bg-gradient-to-b px-5 pb-14 pt-0 md:px-10">
+    <View nativeID="contact" className="from-ink-950 to-ink-900 bg-gradient-to-b px-5 pb-14 pt-0 md:px-10">
       <View className="mb-8 w-full flex-row">
         <View className="bg-sunshine h-1.5 flex-1" />
         <View className="bg-crayonCoral h-1.5 flex-1" />

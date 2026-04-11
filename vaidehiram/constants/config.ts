@@ -16,8 +16,8 @@ export const business = {
 } as const;
 
 export const contact = {
-  email: 'hello@example.com',
-  phone: '+353 00 000 0000',
+  email: 'vaidehiram23@gmail.com',
+  phone: '+353874453433',
   /** Optional WhatsApp link (https://wa.me/353...) — leave empty string to hide */
   whatsappUrl: '',
   /** Instagram profile URL — leave empty to hide */
@@ -52,7 +52,7 @@ export const profilePhoto = {
   /** First name or how you sign off — appears large next to the photo */
   displayName: 'Vaidehi',
   /** Line under the name */
-  roleLabel: 'Childminder · Home-based care · Early years',
+  roleLabel: 'Childminder · I come to your home · Early years',
   /** Short colourful tags (emoji optional) — edit freely */
   funTags: ['🧸 Play & creativity', '🌳 Outdoor time', '📚 Stories & songs'] as const,
   /** Accessibility & SEO description of the image */
@@ -67,7 +67,7 @@ export const profilePhoto = {
 export const hero = {
   headline: 'Calm, joyful days for little learners',
   subline:
-    'Home-based childminding with gentle structure, outdoor play, and partnership with families. Spaces limited—say hello to check availability.',
+    'I come to your home — so your little one stays in their own familiar space, with their own toys and routines. Gentle structure, outdoor play, and open partnership with families. Spaces limited — say hello to check availability.',
   primaryCtaLabel: 'Contact me',
   /** Shown under the main button */
   ctaHint: 'Usually replies within one business day',
@@ -107,6 +107,20 @@ export const about = {
     'I plan gentle rhythms for the day: time outdoors, shared meals, stories, and plenty of space for unstructured play. You will get honest updates and practical tips so we stay aligned on sleep, meals, and developmental leaps.',
     'Families trust me because I communicate early, listen well, and treat every child as an individual. I would love to meet you and learn how we can support your little one.',
   ],
+  pullQuote:
+    'My journey into children\'s worlds began when I had my son — he is six now. Watching him grow day by day had such a profound impact on me that I felt I was growing alongside him. It was through him that I truly discovered what inner joy feels like.',
+  philosophyCard: {
+    emoji: '🌱',
+    heading: 'Why quality childminding matters',
+    pillars: [
+      { icon: '😊', label: 'Happy', detail: 'A child who feels secure is a child ready to thrive.' },
+      { icon: '🎨', label: 'Creative play', detail: 'Open-ended play builds curiosity, problem-solving, and imagination.' },
+      { icon: '🔍', label: 'Explore', detail: 'Little discoveries — indoors and out — shape big thinkers.' },
+      { icon: '🌟', label: 'Grow', detail: 'Every kind word and gentle nudge helps a child become their best self.' },
+    ],
+    closing:
+      'Quality childminding is more than care — it is about creating a nurturing space where every child feels seen, valued, and free to become who they are meant to be.',
+  },
 } as const;
 
 export const trustSection = {
