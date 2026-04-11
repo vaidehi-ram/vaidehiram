@@ -7,12 +7,12 @@ export type TrustStatus = 'Pending' | 'Completed' | 'N/A' | 'If applicable';
 
 export const business = {
   /** Shown in footer and hero accent */
-  shortName: 'Little Oak Childminding',
+  shortName: 'Vaidehi Ramakrishnan',
   /** Formal or full business name if different */
-  legalName: 'Little Oak Childminding',
-  tagline: 'Warm, reliable care in a home-from-home setting',
+  legalName: 'Vaidehi Ramakrishnan',
+  tagline: 'Every child is a story yet to be told — I love being part of that story.',
   /** General area (no full address required on public site) */
-  area: 'Dublin area',
+  area: 'Kildare area',
 } as const;
 
 export const contact = {
@@ -79,25 +79,25 @@ export const trustBadges: {
   status: TrustStatus;
   detail?: string;
 }[] = [
-  {
-    id: 'garda',
-    label: 'Garda Vetting',
-    status: 'Pending',
-    detail: 'Application in progress',
-  },
-  {
-    id: 'first-aid',
-    label: 'Paediatric First Aid',
-    status: 'Pending',
-    detail: 'Course scheduled',
-  },
-  {
-    id: 'tusla',
-    label: 'Tusla Registered',
-    status: 'If applicable',
-    detail: 'Status per current registration',
-  },
-];
+    {
+      id: 'garda',
+      label: 'Garda Vetting',
+      status: 'Pending',
+      detail: 'Application in progress',
+    },
+    {
+      id: 'first-aid',
+      label: 'Paediatric First Aid',
+      status: 'Pending',
+      detail: 'Course scheduled',
+    },
+    {
+      id: 'tusla',
+      label: 'Tusla Registered',
+      status: 'If applicable',
+      detail: 'Status per current registration',
+    },
+  ];
 
 export const about = {
   eyebrow: 'Meet me',
@@ -118,8 +118,8 @@ export const trustSection = {
 export const testimonialsSection = {
   eyebrow: 'Families',
   title: 'Kind words from families',
-  noteDesktop: 'Reviews are anonymised; replace with real testimonials when you are ready.',
-  noteMobile: 'Swipe sideways to read more. Replace copy in `testimonials.json` anytime.',
+  noteDesktop: 'Hear what families who know Vaidehi have to say.',
+  noteMobile: 'Swipe to read more kind words from families.',
 } as const;
 
 export const faqSection = {
