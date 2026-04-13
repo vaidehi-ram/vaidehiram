@@ -33,7 +33,7 @@ export const site = {
 } as const;
 
 export const seo = {
-  title: `${business.shortName} | Registered childminder in ${business.area}`,
+  title: `${business.shortName} | Childminder in ${business.area}`,
   description: `${business.shortName}: nurturing childminding with clear routines, outdoor play, and open communication. ${business.area}.`,
   /** Optional absolute image URL for social previews */
   ogImageUrl: '',
@@ -83,19 +83,19 @@ export const trustBadges: {
       id: 'garda',
       label: 'Garda Vetting',
       status: 'Pending',
-      detail: 'Application in progress',
+      detail: 'In progress',
     },
     {
       id: 'first-aid',
       label: 'Paediatric First Aid',
       status: 'Pending',
-      detail: 'Course scheduled',
+      detail: 'In progress',
     },
     {
       id: 'tusla',
-      label: 'Tusla Registered',
-      status: 'If applicable',
-      detail: 'Status per current registration',
+      label: 'Tusla Registration',
+      status: 'Pending',
+      detail: 'In progress',
     },
   ];
 
